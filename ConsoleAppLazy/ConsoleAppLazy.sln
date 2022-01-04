@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppLazy", "ConsoleAppLazy\ConsoleAppLazy.csproj", "{ECCDF5D9-C0A5-4C5E-A634-DB9F87DFC952}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ECCDF5D9-C0A5-4C5E-A634-DB9F87DFC952}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECCDF5D9-C0A5-4C5E-A634-DB9F87DFC952}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECCDF5D9-C0A5-4C5E-A634-DB9F87DFC952}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECCDF5D9-C0A5-4C5E-A634-DB9F87DFC952}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {99DE9011-6DE4-4B75-A091-FE0FA45BE747}
+	EndGlobalSection
+EndGlobal
