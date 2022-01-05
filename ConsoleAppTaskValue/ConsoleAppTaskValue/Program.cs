@@ -73,7 +73,7 @@ internal class Program
     {
         Console.WriteLine("Hello, World!");
 
-        Console.WriteLine(GetDirSize(@"c:\temp").Result);
+        //Console.WriteLine(GetDirSize(@"c:\temp").Result);
 
         int a = default;
        
@@ -179,7 +179,7 @@ internal class Program
 
     public static unsafe void Display(int* pt)
     {
-        for (int i = 0; i < 14; i++)
+        for (int i = 0; i < 10; i++)
         {
             Console.WriteLine(*(pt + i));
         }
