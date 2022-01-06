@@ -9,7 +9,8 @@ Console.WriteLine($" My name is {name} {lastname}");
 var employee = new Employee("Esmeralda", "calle 123", "32323232");
 var eName = employee["name"];
 var phone = employee["phone"];
-Console.WriteLine($" My name is {eName} this is my phone {phone}");
+employee["name"] = "Beatriz";
+Console.WriteLine($" My name is {employee["name"]} this is my phone {phone}");
 
 
 class Person
@@ -67,13 +68,13 @@ public class Employee
             switch (key)
             {
                 case "name":
-                    Name = key;
+                    Name = value;
                     break;
                 case "address":
-                    Address = key;
+                    Address = value;
                     break;
                 case "phone":
-                    PhoneNumber = key;
+                    PhoneNumber = value;
                     break;
             };
         }
