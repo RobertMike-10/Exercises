@@ -22,8 +22,29 @@ static class Program
 
     static void Main(string[] args)
     {
-
         Console.WriteLine($"Hello, World! My creator is {Name}");
+
+        var me = new Person("Miguel", 36, true);
+        var me2 = new Person("Miguel", 36, true);
+
+        if (me == me2)
+        {
+            Console.WriteLine("Record struct is compared by value");
+        }
+
+        me2 = me;
+        me2.Age = 48;
+        Console.WriteLine(me.ToString());
+
+        var cat = new Animal("Gato", "Black", 3);
+        var cat2 = new Animal("Gato", "Black", 3);
+        if (cat == cat2)
+        {
+            Console.WriteLine("struct needs aditional code to make comparations");
+        }
+        cat2 = cat;
+        cat2.Color = "Yellow";
+        Console.WriteLine(cat.ToString());
 
     }
 
@@ -41,4 +62,48 @@ record struct Person
         Age = age;
         Genre= genre;
     }
+}
+
+struct Animal
+{
+    
+    public string Name;
+    public string Color;
+    public int Age;
+
+    public Animal (string name, string color, int age)
+    {
+        Name = name;
+        Color = color;
+        Age = age;
+    }
+
+    public static Boolean operator ==(Animal a, Animal b)
+    {
+        return a.Name == b.Name && a.Color == b.Color && a.Age == b.Age ? true : false;        
+
+    }
+
+    public static Boolean operator !=(Animal a, Animal b)
+    {
+        return a.Name == b.Name && a.Color == b.Color && a.Age == b.Age ? false : true;
+
+    }
+
+    public override bool Equals(object obj)
+    {
+        throw new NotImplementedException();
+    }
+
+    public override int GetHashCode()
+    {
+        throw new NotImplementedException();
+    }
+
+    public override string ToString()
+    {
+        return $"The {Color} {Name} has {Age} years old.";
+    }
+
+  
 }
