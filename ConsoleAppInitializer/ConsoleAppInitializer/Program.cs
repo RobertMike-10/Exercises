@@ -1,20 +1,23 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System.Runtime.CompilerServices;
 
-class Program
+
+static class Program
 {
     public static string Name;
 
     [ModuleInitializer]
     public static void Initializer()
     {
-        Name = "Mike";
+        Console.WriteLine($"Module Initialization");
+        Name += " García";
     }
 
     //Static constructor
     static Program()
     {
-        Name += " García";
+        Console.WriteLine($"Class constructor");
+        Name += "Mike";
     }
 
     static void Main(string[] args)
