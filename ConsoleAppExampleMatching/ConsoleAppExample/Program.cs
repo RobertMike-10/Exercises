@@ -12,11 +12,13 @@ class Program
             { } => "Indeterminate"
         };
 
+
         var person = new Person();
         var personsOrigin = person switch
         {
             { Name: "Dimitri" } => "Russian",
             { PhoneNumber: { Code: 47 } } => "Sweden",
+            { PhoneNumber: { Code: not 47 and (>4 and <50) } } => "European",
             { Name: var name } => $"No idea where {name} lives"
         };
 
@@ -33,13 +35,16 @@ class Program
         var shape = new Shape();
         var type = shape switch
         {
-            Rectangle((0, 0), 0, 0) => "Point at origin",
-            Circle((0, 0), _) => "Circle at origin",
+            Rectangle((0, 0), 0, 0) or Circle((0, 0), 0) => "Point at origin",
+            Circle((0, 0), >0) => "Circle at origin",
             Rectangle(_, var w, var h) when w == h => "square",
             Rectangle((var x, var y), var w, var h) =>
             $"A {w}X{h} rectangle at ({x},{y})",
+            Circle((var x, var y), var r)  when x>0 && y>0  =>
+            $"A circle at ({x},{y}) with radius {r}",
             _ => "other shape"
         };
+
 
 
         var A = "";
@@ -58,6 +63,8 @@ class Program
             Console.WriteLine("or condition");
         }
 
+
+
         int temperature = -2;
         var feel = temperature switch
         {
@@ -70,20 +77,24 @@ class Program
     }
 }
 
+
+struct PhoneNumberS
+{
+    public int Code, Number;
+}
+
+
+class PhoneNumber
+{
+    public int Code, Number;
+}
+
 class Person
 {
     public string Name;
     public PhoneNumber PhoneNumber;
 }
 
-class PhoneNumber
-{
-    public int Code, Number;
-}
-struct PhoneNumberS
-{
-    public int Code, Number;
-}
 
 class Point
 {
@@ -99,7 +110,7 @@ class Point
 
 class Shape
 {
-    public Point Point { get; set; }
+    public Point OriginPoint { get; set; }
 }
 
 class Rectangle : Shape
@@ -109,10 +120,9 @@ class Rectangle : Shape
 
     public void Deconstruct(out Point point, out int width, out int height)
     {
-        point = this.Point;
+        point = this.OriginPoint;
         width = Width;
         height = Height;
-
     }
 }
 
@@ -122,11 +132,9 @@ class Circle: Shape
 
     public void Deconstruct(out Point point, out decimal radius)
     {
-        point = this.Point;
+        point = this.OriginPoint;
         radius = Radius;
-
     }
-
 }
 
 
