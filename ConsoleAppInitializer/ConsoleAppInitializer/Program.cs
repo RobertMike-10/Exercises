@@ -36,15 +36,13 @@ static class Program
         me2.Age = 48;
         Console.WriteLine(me.ToString());
 
-       /* var cat = new Animal("Gato", "Black", 3);
+        var cat = new Animal("Gato", "Black", 3);
         var cat2 = new Animal("Gato", "Black", 3);
         if (cat == cat2)
         {
             Console.WriteLine("struct needs aditional code to make comparations");
-        }*/
+        }
 
-        var cat = new Animal("Gato", "Black", 3);
-        var cat2 = new Animal("Gato", "Black", 3);
         cat2 = cat;
         cat2.Color = "Yellow";
         Console.WriteLine(cat.ToString());
