@@ -42,7 +42,6 @@ static class Program
         {
             Console.WriteLine("struct needs aditional code to make comparations");
         }
-
         cat2 = cat;
         cat2.Color = "Yellow";
         Console.WriteLine(cat.ToString());
@@ -72,20 +71,20 @@ struct Animal
     public int Age;
     public Animal (string name, string color, int age)
     {
-        Name = name;
-        Color = color;
+        Name = name; 
+        Color = color; 
         Age = age;
     }
-  
+    public static Boolean operator ==(Animal a, Animal b) =>    
+         a.Name == b.Name && a.Color == b.Color && a.Age == b.Age ? true : false;      
+    public static Boolean operator !=(Animal a, Animal b)=>
+         a.Name == b.Name && a.Color == b.Color && a.Age == b.Age ? false : true;      
     public override bool Equals(object obj)
     {
         if (!(obj is Animal)) return false;
-        var other = (Animal)obj;
+        Animal other = (Animal)obj;
         return other.Name == Name && other.Color == Color && other.Age == Age ? true : false;
     }
-
-    public override int GetHashCode() =>  throw new NotImplementedException();
-    
-    public override string ToString() => $"The {Color} {Name} has {Age} years old.";
-    
+    public override int GetHashCode()=>  throw new NotImplementedException();    
+    public override string ToString() => $"The {Color} {Name} has {Age} years old.";      
 }
