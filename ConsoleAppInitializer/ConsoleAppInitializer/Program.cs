@@ -36,18 +36,37 @@ static class Program
         me2.Age = 48;
         Console.WriteLine(me.ToString());
 
-        var cat = new Animal("Gato", "Black", 3);
+       /* var cat = new Animal("Gato", "Black", 3);
         var cat2 = new Animal("Gato", "Black", 3);
         if (cat == cat2)
         {
             Console.WriteLine("struct needs aditional code to make comparations");
-        }
+        }*/
+
+        var cat = new Animal("Gato", "Black", 3);
+        var cat2 = new Animal("Gato", "Black", 3);
         cat2 = cat;
         cat2.Color = "Yellow";
         Console.WriteLine(cat.ToString());
 
+        var e1 = new Example(2);
+        var e2 = new Example(2);
+        if (e1==e2)
+        {
+            "No se puede comparar clases directamente";
+        }
     }
 
+}
+
+
+public class Example
+{
+    public int A;
+
+    public Example(int a){
+        A = a;
+    }
 }
 
 record struct Person
@@ -68,7 +87,7 @@ struct Animal
 {    
     public string Name;
     public string Color;
-    public int Age;
+    public int Age;   
     public Animal (string name, string color, int age)
     {
         Name = name; 
