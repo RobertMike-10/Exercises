@@ -53,7 +53,7 @@ static class Program
         var e2 = new Example(2);
         if (e1==e2)
         {
-            "No se puede comparar clases directamente";
+            Console.WriteLine("No se puede comparar clases directamente");
         }
     }
 
