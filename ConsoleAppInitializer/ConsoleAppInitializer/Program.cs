@@ -36,6 +36,8 @@ static class Program
         me2.Age = 48;
         Console.WriteLine(me.ToString());
 
+
+
         var cat = new Animal("Gato", "Black", 3);
         var cat2 = new Animal("Gato", "Black", 3);
         if (cat == cat2)
@@ -53,6 +55,14 @@ static class Program
         {
             Console.WriteLine("No se puede comparar clases directamente");
         }
+
+        var car1 = new Car(8, "V8", true);
+        var car2 = new Car(8, "V8", true);
+        if (car1==car2)
+        {
+            Console.WriteLine("Records are compared by value");
+        }
+
     }
 
 }
@@ -105,3 +115,18 @@ struct Animal
     public override int GetHashCode()=>  throw new NotImplementedException();    
     public override string ToString() => $"The {Color} {Name} has {Age} years old.";      
 }
+
+record class Car
+{
+    public int Cylinders;
+    public string? Engine;
+    public Boolean Transmision;
+
+   public Car(int cylinders, string engine, Boolean transmision)
+    {
+        Cylinders = cylinders;
+        Engine = engine;
+        Transmision = transmision;
+    }
+}
+
