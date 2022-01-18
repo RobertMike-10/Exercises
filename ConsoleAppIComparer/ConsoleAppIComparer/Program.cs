@@ -31,8 +31,7 @@ Console.WriteLine(empMin?.ToString());
 class Employee : IComparable<Employee>
 {
     public int Salary { get; set; }
-    public string Name { get; set; }
- 
+    public string Name { get; set; } 
   
     public Employee(string name,int salary)
     {
@@ -43,17 +42,10 @@ class Employee : IComparable<Employee>
     {
         if (other is null) return -1;
         // Alphabetic sort if salary is equal. [A to Z]
-        if (this.Salary == other.Salary)
-        {
-            return this.Name.CompareTo(other.Name);
-        }
+        if (this.Salary == other.Salary) return this.Name.CompareTo(other.Name);        
         // Default to salary sort. [High to low]
         return other.Salary.CompareTo(this.Salary);
     }
-
-    public override string ToString()
-    {
-        // String representation.
-        return this.Salary.ToString() + "," + this.Name;
-    }
+    public override string ToString() => this.Salary.ToString() + "," + this.Name;
+    
 }
