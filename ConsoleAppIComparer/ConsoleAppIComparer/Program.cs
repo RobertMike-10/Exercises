@@ -6,7 +6,7 @@ list.Add(new Employee ("Mike",75000));
 list.Add(new Employee ("Janet", 35000 ));
 list.Add(new Employee("Ferdinand",  50000));
 list.Add(new Employee("Liz", 75000 ));
-list.Add(new Employee("Rodolfo", 15000));
+list.Add(new Employee("Rick", 15000));
 list.Add(new Employee("Esmeralda", 85000));
 list.Add(new Employee("Lucy", 80000));
 
@@ -22,8 +22,8 @@ foreach (var element in list)
 var empMax = list.Max();
 var empMin = list.Min();
 
-Console.WriteLine(empMax?.ToString());
-Console.WriteLine(empMin?.ToString());
+Console.WriteLine("Mayor:" + empMax?.ToString());
+Console.WriteLine("Menor:" + empMin?.ToString());
 
 
 
@@ -43,8 +43,8 @@ class Employee : IComparable<Employee>
         if (other is null) return -1;
         // Alphabetic sort if salary is equal. [A to Z]
         if (this.Salary == other.Salary) return this.Name.CompareTo(other.Name);        
-        // Default to salary sort. [High to low]
-        return other.Salary.CompareTo(this.Salary);
+        // Default to salary sort. [Low to High]
+        return this.Salary.CompareTo(other.Salary);
     }
     public override string ToString() => this.Salary.ToString() + "," + this.Name;
     
